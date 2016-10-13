@@ -132,9 +132,15 @@
     <Compile Include="src\Model\TileView.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\highscores.txt" />
-    <None Include="Resources\SwinGame.icns" />
-    <None Include="Resources\SwinGame.ico" />
+    <None Include="Resources\highscores.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\SwinGame.icns">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\SwinGame.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\animations\splash.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
