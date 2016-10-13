@@ -1,4 +1,3 @@
-C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\highscores.txt
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\SwinGame.icns
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\SwinGame.ico
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\animations\splash.txt
@@ -52,6 +51,7 @@ C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\sounds\SwinGameStart.og
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\sounds\SwinGameStart.wav
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\sounds\watershot.wav
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\sounds\winner.wav
+C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\highscores.txt
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Battleships.exe
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\SwinGame.dll
 C:\Users\Netflux\Desktop\Battleships\obj\x86\Debug-Windows\Battleships.exe

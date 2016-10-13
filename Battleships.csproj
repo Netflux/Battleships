@@ -133,7 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\highscores.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\SwinGame.icns">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

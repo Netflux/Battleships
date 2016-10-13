@@ -165,12 +165,12 @@ static class HighScoreController
 		if (_Scores.Count == 0)
 			LoadScores();
 
+		GameController.AddNewState (GameState.ViewingHighScores);
+
 		//is it a high score
 		if (value > _Scores[_Scores.Count - 1].Value) {
 			Score s = new Score();
 			s.Value = value;
-
-			GameController.AddNewState(GameState.ViewingHighScores);
 
 			int x = 0;
 			x = SCORES_LEFT + SwinGame.TextWidth(GameResources.GameFont("Courier"), "Name: ");
@@ -196,8 +196,22 @@ static class HighScoreController
 			_Scores.RemoveAt(_Scores.Count - 1);
 			_Scores.Add(s);
 			_Scores.Sort();
+		} else {
+			bool exit = false;
 
-			GameController.EndCurrentState();
+			while (!exit) {
+				SwinGame.ProcessEvents ();
+
+				UtilityFunctions.DrawBackground ();
+				DrawHighScores ();
+				SwinGame.RefreshScreen ();
+
+				if(SwinGame.MouseClicked (MouseButton.LeftButton) || SwinGame.KeyTyped (KeyCode.vk_RETURN) || SwinGame.KeyTyped (KeyCode.vk_ESCAPE)) {
+					exit = true;
+				}
+			}
 		}
+
+		GameController.EndCurrentState ();
 	}
 }
