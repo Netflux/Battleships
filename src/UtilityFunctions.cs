@@ -128,13 +128,14 @@ static class UtilityFunctions
 
 				Color fillColor = default(Color);
 				bool draw = false;
+				bool hit = false;
 
 				draw = true;
 
-				switch (grid.Item(row, col)) {
-					case TileView.Ship:
-						draw = false;
-						break;
+				switch (grid[row, col]) {
+					//case TileView.Ship:
+					//	draw = false;
+					//	break;
 					//If small Then fillColor = _SMALL_SHIP Else fillColor = _LARGE_SHIP
 					case TileView.Miss:
 						if (small)
@@ -143,12 +144,14 @@ static class UtilityFunctions
 							fillColor = LARGE_MISS;
 						break;
 					case TileView.Hit:
+                        hit = true;
 						if (small)
 							fillColor = SMALL_HIT;
 						else
 							fillColor = LARGE_HIT;
 						break;
 					case TileView.Sea:
+                    case TileView.Ship:
 						if (small)
 							fillColor = SMALL_SEA;
 						else
@@ -160,6 +163,10 @@ static class UtilityFunctions
 					SwinGame.FillRectangle(fillColor, colLeft, rowTop, cellWidth, cellHeight);
 					if (!small) {
 						SwinGame.DrawRectangle(OUTLINE_COLOR, colLeft, rowTop, cellWidth, cellHeight);
+                        if (hit)
+						{
+							SwinGame.DrawBitmap ("explode.png", colLeft, rowTop);
+						}
 					}
 				}
 			}

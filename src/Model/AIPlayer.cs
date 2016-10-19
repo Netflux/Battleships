@@ -49,7 +49,34 @@ public abstract class AIPlayer : Player
 			_Column = column;
 			_Row = row;
 		}
+        
+        /// <summary>
+		/// Check if two locations are equal
+		/// </summary>
+		/// <param name="this">location 1</param>
+		/// <param name="other">location 2</param>
+		/// <returns>true if location 1 and location 2 are at the same spot</returns>
+		public static bool operator ==(Location @this, Location other)
+		{
+			return !ReferenceEquals(@this, null) && !ReferenceEquals(other, null) && ReferenceEquals(@this.Row, other.Row) && ReferenceEquals(@this.Column, other.Column);
+			//return @this != null && other != null && @this.Row == other.Row && @this.Column == other.Column;
+		}
+
+		/// <summary>
+		/// Check if two locations are not equal
+		/// </summary>
+		/// <param name="this">location 1</param>
+		/// <param name="other">location 2</param>
+		/// <returns>true if location 1 and location 2 are not at the same spot</returns>
+		public static bool operator !=(Location @this, Location other)
+		{
+			return ReferenceEquals(@this, null) || ReferenceEquals(other, null) || !ReferenceEquals(@this.Row, other.Row) || !ReferenceEquals(@this.Column, other.Column);	
+			//return @this == null || other == null || @this.Row != other.Row || @this.Column != other.Column;
+
+		}
 	}
+    
+    
 
 
 	public AIPlayer(BattleShipsGame game) : base(game)
@@ -91,7 +118,7 @@ public abstract class AIPlayer : Player
 			result = _game.Shoot(row, column);
 			//take shot
 			ProcessShot(row, column, result);
-		} while (result.Value != ResultOfAttack.Miss && result.Value != ResultOfAttack.GameOver && !(SwinGame.WindowCloseRequested()));
+		} while (result.Value != ResultOfAttack.Miss && result.Value != ResultOfAttack.GameOver && !SwinGame.WindowCloseRequested());
 
 		return result;
 	}
