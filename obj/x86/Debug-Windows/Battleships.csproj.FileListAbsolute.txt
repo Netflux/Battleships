@@ -171,3 +171,6 @@ C:\Users\100067144\Desktop\test\Battleships\bin\Debug\Battleships.exe
 C:\Users\100067144\Desktop\test\Battleships\bin\Debug\SwinGame.dll
 C:\Users\100067144\Desktop\test\Battleships\obj\x86\Debug-Windows\Battleships.csprojResolveAssemblyReference.cache
 C:\Users\100067144\Desktop\test\Battleships\obj\x86\Debug-Windows\Battleships.exe
+C:\Users\Netflux\Desktop\Battleships\obj\x86\Debug-Windows\Battleships.csprojResolveAssemblyReference.cache
+C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\sounds\Destination_Tortuga.mp3
+C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\sounds\Drums_of_Buccaneer.mp3

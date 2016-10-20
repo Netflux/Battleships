@@ -294,10 +294,10 @@ static class MenuController
 			SwinGame.StopMusic ();
 			break;
 		case SOUND_MENU_TORTUGA_BUTTON:
-			SwinGame.PlayMusic ("Destination_Tortuga.wav");
+			SwinGame.PlayMusic ("Destination_Tortuga.mp3");
 			break;
 		case SOUND_MENU_DRUMS_BUTTON:
-			SwinGame.PlayMusic ("Drums_of_Buccaneer.wav");
+			SwinGame.PlayMusic ("Drums_of_Buccaneer.mp3");
 			break;
 		case SOUND_MENU_HORROR_BUTTON:
 			SwinGame.PlayMusic ("horrordrone.wav");
