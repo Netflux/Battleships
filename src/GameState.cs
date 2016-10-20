@@ -46,6 +46,11 @@ public enum GameState
 	EndingGame,
 
 	/// <summary>
+	/// Plater can alter music.
+	/// </summary>
+	AlterMusic,
+
+	/// <summary>
 	/// The player has quit. Show ending credits and terminate the game
 	/// </summary>
 	Quitting
