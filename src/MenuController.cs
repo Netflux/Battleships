@@ -25,6 +25,7 @@ static class MenuController
 			"SETUP",
 			"SCORES",
 			"SOUND",
+			"RESOLUTION",
 			"QUIT"
 		},
 		new string[] {
@@ -42,8 +43,13 @@ static class MenuController
 			"TORTUGA",
 			"DRUMS",
 			"HORROR"
+		},
+		new string[]{
+			"800x600",
+			"1024x768",
+			"1280x768",
+			"1920x1080"
 		}
-
 	};
 	private const int MENU_TOP = 575;
 	private const int MENU_LEFT = 30;
@@ -57,10 +63,17 @@ static class MenuController
 	private const int GAME_MENU = 1;
 
 	private const int SETUP_MENU = 2;
+	private const int SETUP_MENU_EASY_BUTTON = 0;
+	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
+	private const int SETUP_MENU_HARD_BUTTON = 2;
+	private const int SETUP_MENU_EXIT_BUTTON = 3;
+
 	private const int MAIN_MENU_PLAY_BUTTON = 0;
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
 	private const int MAIN_MENU_SOUND_BUTTON = 3;
+	private const int MAIN_MENU_RESOLUTION_BUTTON = 4;
+	private const int MAIN_MENU_QUIT_BUTTON = 5;
 
 	private const int SOUND_MENU = 3;
 	private const int SOUND_MENU_MUTE_BUTTON = 0;
@@ -69,12 +82,13 @@ static class MenuController
 	private const int SOUND_MENU_HORROR_BUTTON = 3;
 	private const int SOUND_MENU_EXIT_BUTTON = 4;
 
-	private const int MAIN_MENU_QUIT_BUTTON = 4;
-	private const int SETUP_MENU_EASY_BUTTON = 0;
-	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
-	private const int SETUP_MENU_HARD_BUTTON = 2;
+	private const int RESOLUTION_MENU = 4;
+	private const int RESOLUTION_MENU_800x600_BUTTON = 0;
+	private const int RESOLUTION_MENU_1024x768_BUTTON = 1;
+	private const int RESOLUTION_MENU_1280x768_BUTTON = 2;
+	private const int RESOLUTION_MENU_1920x1080_BUTTON = 3;
+	private const int RESOLUTION_MENU_EXIT_BUTTON = 4;
 
-	private const int SETUP_MENU_EXIT_BUTTON = 3;
 	private const int GAME_MENU_RETURN_BUTTON = 0;
 	private const int GAME_MENU_SURRENDER_BUTTON = 1;
 
@@ -104,6 +118,9 @@ static class MenuController
 		}
 	}
 
+	/// <summary>
+	/// Handles the processing of user input when the sound menu is showing
+	/// </summary>
 	public static void HandleSoundMenuInput()
 	{
 		bool handled = false;
@@ -111,6 +128,19 @@ static class MenuController
 
 		if (!handled) {
 			HandleMenuInput(MAIN_MENU, 0, 0);
+		}
+	}
+
+	/// <summary>
+	/// Handles the processing of user input when the resolution menu is showing
+	/// </summary>
+	public static void HandleResolutionMenuInput()
+	{
+		bool handled = false;
+		handled = HandleMenuInput (RESOLUTION_MENU, 1, 1);
+
+		if (!handled) {
+			HandleMenuInput (MAIN_MENU, 0, 0);
 		}
 	}
 
@@ -195,10 +225,28 @@ static class MenuController
 		DrawButtons(SETUP_MENU, 1, 1);
 	}
 
+	/// <summary>
+	/// Draws the sound menu to the screen.
+	/// </summary>
+	/// <remarks>
+	/// Also shows the main menu
+	/// </remarks>
 	public static void DrawSound()
 	{
 		DrawButtons(MAIN_MENU);
-		DrawButtons (SOUND_MENU, 1, 1);
+		DrawButtons(SOUND_MENU, 1, 1);
+	}
+
+	/// <summary>
+	/// Draws the resolution menu to the screen.
+	/// </summary>
+	/// <remarks>
+	/// Also shows the main menu
+	/// </remarks>
+	public static void DrawResolution()
+	{
+		DrawButtons(MAIN_MENU);
+		DrawButtons(RESOLUTION_MENU, 1, 1);
 	}
 
 	/// <summary>
@@ -279,31 +327,15 @@ static class MenuController
 			PerformSetupMenuAction(button);
 			break;
 		case SOUND_MENU:
-			PerformSoundMenuAction (button);
+			PerformSoundMenuAction(button);
+			break;
+		case RESOLUTION_MENU:
+			PerformResolutionMenuAction(button);
 			break;
 		case GAME_MENU:
 			PerformGameMenuAction(button);
 			break;
 		}
-	}
-
-	private static void PerformSoundMenuAction(int button)
-	{
-		switch(button){
-		case SOUND_MENU_MUTE_BUTTON:
-			SwinGame.StopMusic ();
-			break;
-		case SOUND_MENU_TORTUGA_BUTTON:
-			SwinGame.PlayMusic ("Destination_Tortuga.mp3");
-			break;
-		case SOUND_MENU_DRUMS_BUTTON:
-			SwinGame.PlayMusic ("Drums_of_Buccaneer.mp3");
-			break;
-		case SOUND_MENU_HORROR_BUTTON:
-			SwinGame.PlayMusic ("horrordrone.wav");
-			break;
-		}
-		GameController.EndCurrentState ();
 	}
 
 	/// <summary>
@@ -323,7 +355,10 @@ static class MenuController
 			GameController.AddNewState(GameState.ViewingHighScores);
 			break;
 		case MAIN_MENU_SOUND_BUTTON:
-			GameController.AddNewState (GameState.AlterMusic);
+			GameController.AddNewState(GameState.AlteringMusic);
+			break;
+		case MAIN_MENU_RESOLUTION_BUTTON:
+			GameController.AddNewState (GameState.AlteringResolution);
 			break;
 		case MAIN_MENU_QUIT_BUTTON:
 			GameController.EndCurrentState();
@@ -350,6 +385,52 @@ static class MenuController
 		}
 		//Always end state - handles exit button as well
 		GameController.EndCurrentState();
+	}
+
+	/// <summary>
+	/// The game menu was clicked, perform the button's action.
+	/// </summary>
+	/// <param name="button">the button pressed</param>
+	private static void PerformSoundMenuAction (int button)
+	{
+		switch (button) {
+		case SOUND_MENU_MUTE_BUTTON:
+			SwinGame.StopMusic();
+			break;
+		case SOUND_MENU_TORTUGA_BUTTON:
+			SwinGame.PlayMusic(GameResources.GameMusic ("Background1"));
+			break;
+		case SOUND_MENU_DRUMS_BUTTON:
+			SwinGame.PlayMusic(GameResources.GameMusic ("Background2"));
+			break;
+		case SOUND_MENU_HORROR_BUTTON:
+			SwinGame.PlayMusic(GameResources.GameMusic ("Background3"));
+			break;
+		}
+		GameController.EndCurrentState ();
+	}
+
+	/// <summary>
+	/// The game menu was clicked, perform the button's action.
+	/// </summary>
+	/// <param name="button">the button pressed</param>
+	private static void PerformResolutionMenuAction (int button)
+	{
+		switch (button) {
+		case RESOLUTION_MENU_800x600_BUTTON:
+			SwinGame.StopMusic();
+			break;
+		case RESOLUTION_MENU_1024x768_BUTTON:
+			SwinGame.PlayMusic(GameResources.GameMusic ("Background1"));
+			break;
+		case RESOLUTION_MENU_1280x768_BUTTON:
+			SwinGame.PlayMusic(GameResources.GameMusic ("Background2"));
+			break;
+		case RESOLUTION_MENU_1920x1080_BUTTON:
+			SwinGame.PlayMusic(GameResources.GameMusic ("Background3"));
+			break;
+		}
+		GameController.EndCurrentState ();
 	}
 
 	/// <summary>
