@@ -40,8 +40,8 @@ static class DiscoveryController
 		//Calculate the row/col clicked
 		int row = 0;
 		int col = 0;
-		row = Convert.ToInt32 (Math.Floor ((mouse.Y - UtilityFunctions.FIELD_TOP - (GameController.ResolutionOffsetY / 2)) / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP)));
-		col = Convert.ToInt32 (Math.Floor ((mouse.X - UtilityFunctions.FIELD_LEFT - (GameController.ResolutionOffsetX / 2)) / (UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP)));
+		row = Convert.ToInt32 (Math.Floor ((mouse.Y - (UtilityFunctions.FIELD_TOP * GameController.ResolutionMultiplier)) / ((UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP) * GameController.ResolutionMultiplier)));
+		col = Convert.ToInt32 (Math.Floor ((mouse.X - (UtilityFunctions.FIELD_LEFT * GameController.ResolutionMultiplier)) / ((UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP) * GameController.ResolutionMultiplier)));
 
 		if (row >= 0 & row < GameController.HumanPlayer.EnemyGrid.Height) {
 			if (col >= 0 & col < GameController.HumanPlayer.EnemyGrid.Width) {
@@ -69,8 +69,8 @@ static class DiscoveryController
 		UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
 		UtilityFunctions.DrawMessage();
 
-		SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT + (GameController.ResolutionOffsetX / 2), SHOTS_TOP + (GameController.ResolutionOffsetY / 2));
-		SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT + (GameController.ResolutionOffsetX / 2), HITS_TOP + (GameController.ResolutionOffsetY / 2));
-		SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT + (GameController.ResolutionOffsetX / 2), SPLASH_TOP + (GameController.ResolutionOffsetY / 2));
+		SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), (int)(Math.Round (SCORES_LEFT * GameController.ResolutionMultiplier)), (int)(Math.Round (SHOTS_TOP * GameController.ResolutionMultiplier)));
+		SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), (int)(Math.Round (SCORES_LEFT * GameController.ResolutionMultiplier)), (int)(Math.Round (HITS_TOP * GameController.ResolutionMultiplier)));
+		SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), (int)(Math.Round (SCORES_LEFT * GameController.ResolutionMultiplier)), (int)(Math.Round (SPLASH_TOP * GameController.ResolutionMultiplier)));
 	}
 }

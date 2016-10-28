@@ -41,10 +41,20 @@ public static class GameResources
 
 		//Deployment
 		NewImage("LeftRightButton", "deploy_dir_button_horiz.png");
+		NewImage("LeftRightButton2", "deploy_dir_button_horiz1024x768.png");
+		NewImage("LeftRightButton3", "deploy_dir_button_horiz1280x960.png");
 		NewImage("UpDownButton", "deploy_dir_button_vert.png");
+		NewImage("UpDownButton2", "deploy_dir_button_vert1024x768.png");
+		NewImage("UpDownButton3", "deploy_dir_button_vert1280x960.png");
 		NewImage("SelectedShip", "deploy_button_hl.png");
+		NewImage("SelectedShip2", "deploy_button_hl1024x768.png");
+		NewImage("SelectedShip3", "deploy_button_hl1280x960.png");
 		NewImage("PlayButton", "deploy_play_button.png");
+		NewImage("PlayButton2", "deploy_play_button1024x768.png");
+		NewImage("PlayButton3", "deploy_play_button1280x960.png");
 		NewImage("RandomButton", "deploy_randomize_button.png");
+		NewImage("RandomButton2", "deploy_randomize_button1024x768.png");
+		NewImage("RandomButton3", "deploy_randomize_button1280x960.png");
 
 		//Ships
 		int i = 0;
@@ -55,8 +65,11 @@ public static class GameResources
 
 		//Explosions
 		NewImage("Explosion", "explosion.png");
+		NewImage("Explosion2", "explosion1024x768.png");
+		NewImage("Explosion3", "explosion1280x960.png");
 		NewImage("Splash", "splash.png");
-
+		NewImage("Splash2", "splash1024x768.png");
+		NewImage("Splash3", "splash1280x960.png");
 	}
 
 	/// <summary>

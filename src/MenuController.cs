@@ -419,18 +419,21 @@ static class MenuController
 		case RESOLUTION_MENU_800x600_BUTTON:
 			SwinGame.ChangeScreenSize(800, 600);
 			GameController.Resolution = GameResolution.Res800x600;
+			GameController.ResolutionMultiplier = 1;
 			GameController.ResolutionOffsetX = 0;
 			GameController.ResolutionOffsetY = 0;
 			break;
 		case RESOLUTION_MENU_1024x768_BUTTON:
 			SwinGame.ChangeScreenSize(1024, 768);
 			GameController.Resolution = GameResolution.Res1024x768;
+			GameController.ResolutionMultiplier = 1.28;
 			GameController.ResolutionOffsetX = 224;
 			GameController.ResolutionOffsetY = 168;
 			break;
 		case RESOLUTION_MENU_1280x960_BUTTON:
 			SwinGame.ChangeScreenSize(1280, 960);
 			GameController.Resolution = GameResolution.Res1280x960;
+			GameController.ResolutionMultiplier = 1.6;
 			GameController.ResolutionOffsetX = 480;
 			GameController.ResolutionOffsetY = 360;
 			break;

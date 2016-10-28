@@ -74,8 +74,7 @@ static class UtilityFunctions
 	/// <param name="showShips">indicates if the ships should be shown</param>
 	public static void DrawField(ISeaGrid grid, Player thePlayer, bool showShips)
 	{
-		DrawCustomField(grid, thePlayer, false, showShips, FIELD_LEFT + (GameController.ResolutionOffsetX / 2), FIELD_TOP + (GameController.ResolutionOffsetY / 2), FIELD_WIDTH, FIELD_HEIGHT, CELL_WIDTH, CELL_HEIGHT,
-		CELL_GAP);
+		DrawCustomField(grid, thePlayer, false, showShips, (int)(Math.Round (FIELD_LEFT * GameController.ResolutionMultiplier)), (int)(Math.Round (FIELD_TOP * GameController.ResolutionMultiplier)), (int)(Math.Round (FIELD_WIDTH * GameController.ResolutionMultiplier)), (int)(Math.Round (FIELD_HEIGHT * GameController.ResolutionMultiplier)), (int)(Math.Round (CELL_WIDTH * GameController.ResolutionMultiplier)), (int)(Math.Round (CELL_HEIGHT * GameController.ResolutionMultiplier)), (int)(Math.Round (CELL_GAP * GameController.ResolutionMultiplier)));
 	}
 
 	/// <summary>
@@ -93,8 +92,7 @@ static class UtilityFunctions
 		const int SMALL_FIELD_CELL_HEIGHT = 13;
 		const int SMALL_FIELD_CELL_GAP = 4;
 
-		DrawCustomField(grid, thePlayer, true, true, SMALL_FIELD_LEFT + (GameController.ResolutionOffsetX / 2), SMALL_FIELD_TOP + (GameController.ResolutionOffsetY / 2), SMALL_FIELD_WIDTH, SMALL_FIELD_HEIGHT, SMALL_FIELD_CELL_WIDTH, SMALL_FIELD_CELL_HEIGHT,
-		SMALL_FIELD_CELL_GAP);
+		DrawCustomField(grid, thePlayer, true, true, (int)(Math.Round(SMALL_FIELD_LEFT * GameController.ResolutionMultiplier)), (int)(Math.Round (SMALL_FIELD_TOP * GameController.ResolutionMultiplier)), (int)(Math.Round (SMALL_FIELD_WIDTH * GameController.ResolutionMultiplier)), (int)(Math.Round (SMALL_FIELD_HEIGHT * GameController.ResolutionMultiplier)), (int)(Math.Round (SMALL_FIELD_CELL_WIDTH * GameController.ResolutionMultiplier)), (int)(Math.Round (SMALL_FIELD_CELL_HEIGHT * GameController.ResolutionMultiplier)), (int)(Math.Round (SMALL_FIELD_CELL_GAP * GameController.ResolutionMultiplier)));
 	}
 
 	/// <summary>
@@ -166,6 +164,13 @@ static class UtilityFunctions
                         if (hit)
 						{
 							SwinGame.DrawBitmap ("explode.png", colLeft, rowTop);
+							/*if (GameController.Resolution == GameResolution.Res800x600) {
+								SwinGame.DrawBitmap ("Explosion", (int)(colLeft * GameController.ResolutionMultiplier), (int)(rowTop * GameController.ResolutionMultiplier));
+							} else if (GameController.Resolution == GameResolution.Res1024x768) {
+								SwinGame.DrawBitmap ("Explosion2", (int)(colLeft * GameController.ResolutionMultiplier), (int)(rowTop * GameController.ResolutionMultiplier));
+							} else if (GameController.Resolution == GameResolution.Res1280x960) {
+								SwinGame.DrawBitmap ("Explosion3", (int)(colLeft * GameController.ResolutionMultiplier), (int)(rowTop * GameController.ResolutionMultiplier));
+							}*/
 						}
 					}
 				}
@@ -224,7 +229,7 @@ static class UtilityFunctions
 	/// </summary>
 	public static void DrawMessage()
 	{
-		SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), FIELD_LEFT + (GameController.ResolutionOffsetX / 2), MESSAGE_TOP + (GameController.ResolutionOffsetY / 2));
+		SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), (int)(Math.Round (FIELD_LEFT * GameController.ResolutionMultiplier)), (int)(Math.Round (MESSAGE_TOP * GameController.ResolutionMultiplier)));
 	}
 
 	/// <summary>
@@ -282,7 +287,13 @@ static class UtilityFunctions
 	/// <param name="col">Col.</param>
 	public static void AddExplosion(int row, int col)
 	{
-		AddAnimation(row, col, "Splash");
+		if (GameController.Resolution == GameResolution.Res800x600) {
+			AddAnimation (row, col, "Explosion");
+		} else if (GameController.Resolution == GameResolution.Res1024x768) {
+			AddAnimation (row, col, "Explosion2");
+		} else if (GameController.Resolution == GameResolution.Res1280x960) {
+			AddAnimation (row, col, "Explosion3");
+		}
 	}
 
 	/// <summary>
@@ -292,7 +303,13 @@ static class UtilityFunctions
 	/// <param name="col">Col.</param>
 	public static void AddSplash(int row, int col)
 	{
-		AddAnimation(row, col, "Splash");
+		if (GameController.Resolution == GameResolution.Res800x600) {
+			AddAnimation (row, col, "Splash");
+		} else if (GameController.Resolution == GameResolution.Res1024x768) {
+			AddAnimation (row, col, "Splash2");
+		} else if (GameController.Resolution == GameResolution.Res1280x960) {
+			AddAnimation (row, col, "Splash3");
+		}
 	}
 
 
@@ -309,15 +326,15 @@ static class UtilityFunctions
 		Bitmap imgObj = default(Bitmap);
 
 		imgObj = GameResources.GameImage(image);
-		imgObj.SetCellDetails(40, 40, 3, 3, 7);
+		imgObj.SetCellDetails((int)(Math.Round (40 * GameController.ResolutionMultiplier)), (int)(Math.Round (40 * GameController.ResolutionMultiplier)), 3, 3, 7);
 
 		AnimationScript animation = default(AnimationScript);
 		animation = SwinGame.LoadAnimationScript("splash.txt");
 
 		s = SwinGame.CreateSprite(imgObj, animation);
-		s.X = FIELD_LEFT + (GameController.ResolutionOffsetX / 2) + col * (CELL_WIDTH + CELL_GAP);
-		s.Y = FIELD_TOP + (GameController.ResolutionOffsetY / 2) + row * (CELL_HEIGHT + CELL_GAP);
-
+		s.X = FIELD_LEFT + col * (CELL_WIDTH + CELL_GAP);
+		s.Y = FIELD_TOP + row * (CELL_HEIGHT + CELL_GAP);
+		
 		s.StartAnimation("splash");
 		_Animations.Add(s);
 	}

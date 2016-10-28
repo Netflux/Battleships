@@ -20,6 +20,7 @@ public static class GameController
 	private static Stack<GameState> _state = new Stack<GameState>();
 
 	private static GameResolution _resolution = GameResolution.Res800x600;
+	public static double ResolutionMultiplier = 1;
 	public static int ResolutionOffsetX = 0;
 	public static int ResolutionOffsetY = 0;
 
