@@ -60,3 +60,25 @@ public enum GameState
 	/// </summary>
 	Quitting
 }
+
+/// <summary>
+/// The GameResolutions represent the state of the Battleships window resolution.
+/// This is used to control the display size of the game elements.
+/// </summary>
+public enum GameResolution
+{
+	/// <summary>
+	/// The game resolution is 800x600
+	/// </summary>
+	Res800x600,
+
+	/// <summary>
+	/// The game resolution is 1024x768
+	/// </summary>
+	Res1024x768,
+
+	/// <summary>
+	/// The game resolution is 1280x960
+	/// </summary>
+	Res1280x960
+}

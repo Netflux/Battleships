@@ -4,11 +4,6 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\GameController.cs">
-    <Files>
-      <File FileName="src\MenuController.cs" Line="143" Column="38" />
-      <File FileName="src\GameController.cs" Line="333" Column="42" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.ItemProperties.Battleships PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

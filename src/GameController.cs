@@ -19,7 +19,21 @@ public static class GameController
 
 	private static Stack<GameState> _state = new Stack<GameState>();
 
+	private static GameResolution _resolution = GameResolution.Res800x600;
+	public static int ResolutionOffsetX = 0;
+	public static int ResolutionOffsetY = 0;
+
 	private static AIOption _aiSetting;
+
+	/// <summary>
+	/// Gets or sets the current resolution size of the game window
+	/// </summary>
+	/// <value>The current resolution</value>
+	public static GameResolution Resolution {
+		get { return _resolution; }
+		set { _resolution = value; }
+	}
+
 	/// <summary>
 	/// Returns the current state of the game, indicating which screen is
 	/// currently being used

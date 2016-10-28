@@ -74,7 +74,7 @@ static class UtilityFunctions
 	/// <param name="showShips">indicates if the ships should be shown</param>
 	public static void DrawField(ISeaGrid grid, Player thePlayer, bool showShips)
 	{
-		DrawCustomField(grid, thePlayer, false, showShips, FIELD_LEFT, FIELD_TOP, FIELD_WIDTH, FIELD_HEIGHT, CELL_WIDTH, CELL_HEIGHT,
+		DrawCustomField(grid, thePlayer, false, showShips, FIELD_LEFT + (GameController.ResolutionOffsetX / 2), FIELD_TOP + (GameController.ResolutionOffsetY / 2), FIELD_WIDTH, FIELD_HEIGHT, CELL_WIDTH, CELL_HEIGHT,
 		CELL_GAP);
 	}
 
@@ -93,7 +93,7 @@ static class UtilityFunctions
 		const int SMALL_FIELD_CELL_HEIGHT = 13;
 		const int SMALL_FIELD_CELL_GAP = 4;
 
-		DrawCustomField(grid, thePlayer, true, true, SMALL_FIELD_LEFT, SMALL_FIELD_TOP, SMALL_FIELD_WIDTH, SMALL_FIELD_HEIGHT, SMALL_FIELD_CELL_WIDTH, SMALL_FIELD_CELL_HEIGHT,
+		DrawCustomField(grid, thePlayer, true, true, SMALL_FIELD_LEFT + (GameController.ResolutionOffsetX / 2), SMALL_FIELD_TOP + (GameController.ResolutionOffsetY / 2), SMALL_FIELD_WIDTH, SMALL_FIELD_HEIGHT, SMALL_FIELD_CELL_WIDTH, SMALL_FIELD_CELL_HEIGHT,
 		SMALL_FIELD_CELL_GAP);
 	}
 
@@ -224,7 +224,7 @@ static class UtilityFunctions
 	/// </summary>
 	public static void DrawMessage()
 	{
-		SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), FIELD_LEFT, MESSAGE_TOP);
+		SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), FIELD_LEFT + (GameController.ResolutionOffsetX / 2), MESSAGE_TOP + (GameController.ResolutionOffsetY / 2));
 	}
 
 	/// <summary>
@@ -239,14 +239,33 @@ static class UtilityFunctions
 			case GameState.AlteringSettings:
 			case GameState.ViewingHighScores:
 			case GameState.AlteringMusic:
-				SwinGame.DrawBitmap(GameResources.GameImage("Menu"), 0, 0);
+			case GameState.AlteringResolution:
+				if(GameController.Resolution == GameResolution.Res800x600) {
+					SwinGame.DrawBitmap (GameResources.GameImage ("Menu"), 0, 0);
+				} else if (GameController.Resolution == GameResolution.Res1024x768) {
+					SwinGame.DrawBitmap (GameResources.GameImage ("Menu2"), 0, 0);
+				} else if (GameController.Resolution == GameResolution.Res1280x960) {
+					SwinGame.DrawBitmap (GameResources.GameImage ("Menu3"), 0, 0);
+				}
 				break;
 			case GameState.Discovering:
 			case GameState.EndingGame:
-				SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
+				if(GameController.Resolution == GameResolution.Res800x600) {
+					SwinGame.DrawBitmap (GameResources.GameImage ("Discovery"), 0, 0);
+				} else if (GameController.Resolution == GameResolution.Res1024x768) {
+					SwinGame.DrawBitmap (GameResources.GameImage ("Discovery2"), 0, 0);
+				} else if (GameController.Resolution == GameResolution.Res1280x960) {
+					SwinGame.DrawBitmap (GameResources.GameImage ("Discovery3"), 0, 0);
+				}
 				break;
 			case GameState.Deploying:
-				SwinGame.DrawBitmap(GameResources.GameImage("Deploy"), 0, 0);
+				if(GameController.Resolution == GameResolution.Res800x600) {
+					SwinGame.DrawBitmap (GameResources.GameImage ("Deploy"), 0, 0);
+				} else if (GameController.Resolution == GameResolution.Res1024x768) {
+					SwinGame.DrawBitmap (GameResources.GameImage ("Deploy2"), 0, 0);
+				} else if (GameController.Resolution == GameResolution.Res1280x960) {
+					SwinGame.DrawBitmap (GameResources.GameImage ("Deploy3"), 0, 0);
+				}
 				break;
 			default:
 				SwinGame.ClearScreen();
@@ -296,8 +315,8 @@ static class UtilityFunctions
 		animation = SwinGame.LoadAnimationScript("splash.txt");
 
 		s = SwinGame.CreateSprite(imgObj, animation);
-		s.X = FIELD_LEFT + col * (CELL_WIDTH + CELL_GAP);
-		s.Y = FIELD_TOP + row * (CELL_HEIGHT + CELL_GAP);
+		s.X = FIELD_LEFT + (GameController.ResolutionOffsetX / 2) + col * (CELL_WIDTH + CELL_GAP);
+		s.Y = FIELD_TOP + (GameController.ResolutionOffsetY / 2) + row * (CELL_HEIGHT + CELL_GAP);
 
 		s.StartAnimation("splash");
 		_Animations.Add(s);

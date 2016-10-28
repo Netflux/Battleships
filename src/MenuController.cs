@@ -47,10 +47,10 @@ static class MenuController
 		new string[]{
 			"800x600",
 			"1024x768",
-			"1280x768",
-			"1920x1080"
+			"1280x960"
 		}
 	};
+
 	private const int MENU_TOP = 575;
 	private const int MENU_LEFT = 30;
 	private const int MENU_GAP = 0;
@@ -85,9 +85,8 @@ static class MenuController
 	private const int RESOLUTION_MENU = 4;
 	private const int RESOLUTION_MENU_800x600_BUTTON = 0;
 	private const int RESOLUTION_MENU_1024x768_BUTTON = 1;
-	private const int RESOLUTION_MENU_1280x768_BUTTON = 2;
-	private const int RESOLUTION_MENU_1920x1080_BUTTON = 3;
-	private const int RESOLUTION_MENU_EXIT_BUTTON = 4;
+	private const int RESOLUTION_MENU_1280x960_BUTTON = 2;
+	private const int RESOLUTION_MENU_EXIT_BUTTON = 3;
 
 	private const int GAME_MENU_RETURN_BUTTON = 0;
 	private const int GAME_MENU_SURRENDER_BUTTON = 1;
@@ -137,10 +136,10 @@ static class MenuController
 	public static void HandleResolutionMenuInput()
 	{
 		bool handled = false;
-		handled = HandleMenuInput (RESOLUTION_MENU, 1, 1);
+		handled = HandleMenuInput(RESOLUTION_MENU, 1, 1);
 
 		if (!handled) {
-			HandleMenuInput (MAIN_MENU, 0, 0);
+			HandleMenuInput(MAIN_MENU, 0, 0);
 		}
 	}
 
@@ -279,10 +278,10 @@ static class MenuController
 			int btnLeft = 0;
 			btnLeft = MENU_LEFT + BUTTON_SEP * (i + xOffset);
 			//SwinGame.FillRectangle(Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT)
-			SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Transparent, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET, BUTTON_WIDTH, BUTTON_HEIGHT);
+			SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Transparent, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET + GameController.ResolutionOffsetY, BUTTON_WIDTH, BUTTON_HEIGHT);
 
 			if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset)) {
-				SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
+				SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop + GameController.ResolutionOffsetY, BUTTON_WIDTH, BUTTON_HEIGHT);
 			}
 		}
 	}
@@ -309,7 +308,7 @@ static class MenuController
 		int btnTop = MENU_TOP - (MENU_GAP + BUTTON_HEIGHT) * level;
 		int btnLeft = MENU_LEFT + BUTTON_SEP * (button + xOffset);
 
-		return UtilityFunctions.IsMouseInRectangle(btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
+		return UtilityFunctions.IsMouseInRectangle(btnLeft, btnTop + GameController.ResolutionOffsetY, BUTTON_WIDTH, BUTTON_HEIGHT);
 	}
 
 	/// <summary>
@@ -407,7 +406,7 @@ static class MenuController
 			SwinGame.PlayMusic(GameResources.GameMusic ("Background3"));
 			break;
 		}
-		GameController.EndCurrentState ();
+		GameController.EndCurrentState();
 	}
 
 	/// <summary>
@@ -418,19 +417,25 @@ static class MenuController
 	{
 		switch (button) {
 		case RESOLUTION_MENU_800x600_BUTTON:
-			SwinGame.StopMusic();
+			SwinGame.ChangeScreenSize(800, 600);
+			GameController.Resolution = GameResolution.Res800x600;
+			GameController.ResolutionOffsetX = 0;
+			GameController.ResolutionOffsetY = 0;
 			break;
 		case RESOLUTION_MENU_1024x768_BUTTON:
-			SwinGame.PlayMusic(GameResources.GameMusic ("Background1"));
+			SwinGame.ChangeScreenSize(1024, 768);
+			GameController.Resolution = GameResolution.Res1024x768;
+			GameController.ResolutionOffsetX = 224;
+			GameController.ResolutionOffsetY = 168;
 			break;
-		case RESOLUTION_MENU_1280x768_BUTTON:
-			SwinGame.PlayMusic(GameResources.GameMusic ("Background2"));
-			break;
-		case RESOLUTION_MENU_1920x1080_BUTTON:
-			SwinGame.PlayMusic(GameResources.GameMusic ("Background3"));
+		case RESOLUTION_MENU_1280x960_BUTTON:
+			SwinGame.ChangeScreenSize(1280, 960);
+			GameController.Resolution = GameResolution.Res1280x960;
+			GameController.ResolutionOffsetX = 480;
+			GameController.ResolutionOffsetY = 360;
 			break;
 		}
-		GameController.EndCurrentState ();
+		GameController.EndCurrentState();
 	}
 
 	/// <summary>

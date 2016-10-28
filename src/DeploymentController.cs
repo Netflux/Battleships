@@ -113,11 +113,11 @@ static class DeploymentController
 				DoDeployClick();
 			}
 
-			if (GameController.HumanPlayer.ReadyToDeploy & UtilityFunctions.IsMouseInRectangle(PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP, PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
+			if (GameController.HumanPlayer.ReadyToDeploy & UtilityFunctions.IsMouseInRectangle(PLAY_BUTTON_LEFT + (GameController.ResolutionOffsetX / 2), TOP_BUTTONS_TOP + (GameController.ResolutionOffsetY / 2), PLAY_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
 			{
 				GameController.EndDeployment();
 			}
-			else if (UtilityFunctions.IsMouseInRectangle(UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
+			else if (UtilityFunctions.IsMouseInRectangle(UP_DOWN_BUTTON_LEFT + (GameController.ResolutionOffsetX / 2), TOP_BUTTONS_TOP + (GameController.ResolutionOffsetY / 2), DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
 			{
 				_currentDirection = Direction.UpDown;
 
@@ -141,7 +141,7 @@ static class DeploymentController
 
 				}
 			}
-			else if (UtilityFunctions.IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP, DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
+			else if (UtilityFunctions.IsMouseInRectangle(LEFT_RIGHT_BUTTON_LEFT + (GameController.ResolutionOffsetX / 2), TOP_BUTTONS_TOP + (GameController.ResolutionOffsetY / 2), DIR_BUTTONS_WIDTH, TOP_BUTTONS_HEIGHT))
 			{
 				_currentDirection = Direction.LeftRight;
                 int row = 0;
@@ -164,7 +164,7 @@ static class DeploymentController
 
 				}
 			}
-			else if (UtilityFunctions.IsMouseInRectangle(RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP, RANDOM_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
+			else if (UtilityFunctions.IsMouseInRectangle(RANDOM_BUTTON_LEFT + (GameController.ResolutionOffsetX / 2), TOP_BUTTONS_TOP + (GameController.ResolutionOffsetY / 2), RANDOM_BUTTON_WIDTH, TOP_BUTTONS_HEIGHT))
 			{
 				GameController.HumanPlayer.RandomizeDeployment();
 			}
@@ -188,8 +188,8 @@ static class DeploymentController
 		//Calculate the row/col clicked
 		int row = 0;
 		int col = 0;
-		row = Convert.ToInt32(Math.Floor((mouse.Y - UtilityFunctions.FIELD_TOP) / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP)));
-		col = Convert.ToInt32(Math.Floor((mouse.X - UtilityFunctions.FIELD_LEFT) / (UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP)));
+		row = Convert.ToInt32(Math.Floor((mouse.Y - UtilityFunctions.FIELD_TOP - (GameController.ResolutionOffsetY / 2)) / (UtilityFunctions.CELL_HEIGHT + UtilityFunctions.CELL_GAP)));
+		col = Convert.ToInt32(Math.Floor((mouse.X - UtilityFunctions.FIELD_LEFT - (GameController.ResolutionOffsetX / 2)) / (UtilityFunctions.CELL_WIDTH + UtilityFunctions.CELL_GAP)));
 
 		if (row >= 0 & row < GameController.HumanPlayer.PlayerGrid.Height)
 		{
@@ -220,12 +220,12 @@ static class DeploymentController
 		//Draw the Left/Right and Up/Down buttons
 		if (_currentDirection == Direction.LeftRight)
 		{
-			SwinGame.DrawBitmap(GameResources.GameImage("LeftRightButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
+			SwinGame.DrawBitmap(GameResources.GameImage("LeftRightButton"), LEFT_RIGHT_BUTTON_LEFT + (GameController.ResolutionOffsetX / 2), TOP_BUTTONS_TOP + (GameController.ResolutionOffsetY / 2));
 			//SwinGame.DrawText("U/D", Color.Gray, GameFont("Menu"), UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP)
 			//SwinGame.DrawText("L/R", Color.White, GameFont("Menu"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP)
 		}
 		else {
-			SwinGame.DrawBitmap(GameResources.GameImage("UpDownButton"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP);
+			SwinGame.DrawBitmap(GameResources.GameImage("UpDownButton"), LEFT_RIGHT_BUTTON_LEFT + (GameController.ResolutionOffsetX / 2), TOP_BUTTONS_TOP + (GameController.ResolutionOffsetY / 2));
 			//SwinGame.DrawText("U/D", Color.White, GameFont("Menu"), UP_DOWN_BUTTON_LEFT, TOP_BUTTONS_TOP)
 			//SwinGame.DrawText("L/R", Color.Gray, GameFont("Menu"), LEFT_RIGHT_BUTTON_LEFT, TOP_BUTTONS_TOP)
 		}
@@ -239,7 +239,7 @@ static class DeploymentController
 			{
 				if (sn == _selectedShip)
 				{
-					SwinGame.DrawBitmap(GameResources.GameImage("SelectedShip"), SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT);
+					SwinGame.DrawBitmap(GameResources.GameImage("SelectedShip"), SHIPS_LEFT + (GameController.ResolutionOffsetX / 2), SHIPS_TOP + (GameController.ResolutionOffsetY / 2) + i * SHIPS_HEIGHT);
 					//    SwinGame.FillRectangle(Color.LightBlue, SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT)
 					//Else
 					//    SwinGame.FillRectangle(Color.Gray, SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT)
@@ -253,12 +253,12 @@ static class DeploymentController
 
 		if (GameController.HumanPlayer.ReadyToDeploy)
 		{
-			SwinGame.DrawBitmap(GameResources.GameImage("PlayButton"), PLAY_BUTTON_LEFT, TOP_BUTTONS_TOP);
+			SwinGame.DrawBitmap(GameResources.GameImage("PlayButton"), PLAY_BUTTON_LEFT + (GameController.ResolutionOffsetX / 2), TOP_BUTTONS_TOP + (GameController.ResolutionOffsetY / 2));
 			//SwinGame.FillRectangle(Color.LightBlue, PLAY_BUTTON_LEFT, PLAY_BUTTON_TOP, PLAY_BUTTON_WIDTH, PLAY_BUTTON_HEIGHT)
 			//SwinGame.DrawText("PLAY", Color.Black, GameFont("Courier"), PLAY_BUTTON_LEFT + TEXT_OFFSET, PLAY_BUTTON_TOP)
 		}
 
-		SwinGame.DrawBitmap(GameResources.GameImage("RandomButton"), RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP);
+		SwinGame.DrawBitmap(GameResources.GameImage("RandomButton"), RANDOM_BUTTON_LEFT + (GameController.ResolutionOffsetX / 2), TOP_BUTTONS_TOP + (GameController.ResolutionOffsetY / 2));
 
 		UtilityFunctions.DrawMessage();
 	}
@@ -274,7 +274,7 @@ static class DeploymentController
 			int i = 0;
 			i = ((int)sn) - 1;
 
-			if (UtilityFunctions.IsMouseInRectangle(SHIPS_LEFT, SHIPS_TOP + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT))
+			if (UtilityFunctions.IsMouseInRectangle(SHIPS_LEFT + (GameController.ResolutionOffsetX / 2), SHIPS_TOP + (GameController.ResolutionOffsetY / 2) + i * SHIPS_HEIGHT, SHIPS_WIDTH, SHIPS_HEIGHT))
 			{
 				return sn;
 			}

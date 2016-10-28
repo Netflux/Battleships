@@ -30,8 +30,14 @@ public static class GameResources
 	{
 		//Backgrounds
 		NewImage("Menu", "main_page.jpg");
+		NewImage("Menu2", "main_page1024x768.jpg");
+		NewImage("Menu3", "main_page1280x960.jpg");
 		NewImage("Discovery", "discover.jpg");
+		NewImage("Discovery2", "discover1024x768.jpg");
+		NewImage("Discovery3", "discover1280x960.jpg");
 		NewImage("Deploy", "deploy.jpg");
+		NewImage("Deploy2", "deploy1024x768.jpg");
+		NewImage("Deploy3", "deploy1280x960.jpg");
 
 		//Deployment
 		NewImage("LeftRightButton", "deploy_dir_button_horiz.png");
