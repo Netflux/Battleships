@@ -277,7 +277,7 @@ static class UtilityFunctions
 				break;
 		}
 
-		SwinGame.DrawFramerate(675, 585, GameResources.GameFont("CourierSmall"));
+		SwinGame.DrawFramerate((int)(Math.Round(675 * GameController.ResolutionMultiplier)), (int)(Math.Round(585 * GameController.ResolutionMultiplier)), GameResources.GameFont("CourierSmall"));
 	}
 
 	/// <summary>
@@ -332,8 +332,8 @@ static class UtilityFunctions
 		animation = SwinGame.LoadAnimationScript("splash.txt");
 
 		s = SwinGame.CreateSprite(imgObj, animation);
-		s.X = FIELD_LEFT + col * (CELL_WIDTH + CELL_GAP);
-		s.Y = FIELD_TOP + row * (CELL_HEIGHT + CELL_GAP);
+		s.X = (int)(Math.Round((FIELD_LEFT + col * (CELL_WIDTH + CELL_GAP)) * GameController.ResolutionMultiplier));
+		s.Y = (int)(Math.Round((FIELD_TOP + row * (CELL_HEIGHT + CELL_GAP)) * GameController.ResolutionMultiplier));
 		
 		s.StartAnimation("splash");
 		_Animations.Add(s);
