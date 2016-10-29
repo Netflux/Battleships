@@ -115,14 +115,14 @@ static class HighScoreController
 	/// </summary>
 	public static void DrawHighScores()
 	{
-		const int SCORES_HEADING = 220;
-		const int SCORES_TOP = 260;
-		const int SCORE_GAP = 30;
+		const int SCORES_HEADING = 230;
+		const int SCORES_TOP = 270;
+		const int SCORE_GAP = 25;
 
 		if (_Scores.Count == 0)
 			LoadScores();
-
-		SwinGame.DrawText("   High Scores   ", Color.White, GameResources.GameFont("Courier"), SCORES_LEFT + (GameController.ResolutionOffsetX / 2), SCORES_HEADING + (GameController.ResolutionOffsetY / 2));
+		SwinGame.DrawBitmap (GameResources.GameImage ("Highscoreboard"), 295, 202);
+		SwinGame.DrawText(" High Scores   ", Color.Black, GameResources.GameFont("Liberatorm"), SCORES_LEFT + (GameController.ResolutionOffsetX / 2), SCORES_HEADING + (GameController.ResolutionOffsetY / 2));
 
 		//For all of the scores
 		int i = 0;
@@ -133,9 +133,9 @@ static class HighScoreController
 
 			//for scores 1 - 9 use 01 - 09
 			if (i < 9) {
-				SwinGame.DrawText(" " + (i + 1) + ":   " + s.Name + "   " + s.Value, Color.White, GameResources.GameFont("Courier"), SCORES_LEFT + (GameController.ResolutionOffsetX / 2), SCORES_TOP + (GameController.ResolutionOffsetY / 2) + i * SCORE_GAP);
+				SwinGame.DrawText(" " + (i + 1) + ":   " + s.Name + "   " + s.Value, Color.Black, GameResources.GameFont("Liberatorm"), SCORES_LEFT + (GameController.ResolutionOffsetX / 2), SCORES_TOP + (GameController.ResolutionOffsetY / 2) + i * SCORE_GAP);
 			} else {
-				SwinGame.DrawText(i + 1 + ":   " + s.Name + "   " + s.Value, Color.White, GameResources.GameFont("Courier"), SCORES_LEFT + (GameController.ResolutionOffsetX / 2), SCORES_TOP + (GameController.ResolutionOffsetY / 2) + i * SCORE_GAP);
+				SwinGame.DrawText(" " + (i + 1) + ":   " + s.Name + "   " + s.Value, Color.Black, GameResources.GameFont("Liberatorm"), SCORES_LEFT + (GameController.ResolutionOffsetX / 2), SCORES_TOP + (GameController.ResolutionOffsetY / 2) + i * SCORE_GAP);
 			}
 		}
 	}

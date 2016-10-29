@@ -51,11 +51,11 @@ static class MenuController
 		}
 	};
 
-	private const int MENU_TOP = 575;
-	private const int MENU_LEFT = 30;
+	private const int MENU_TOP = 570;
+	private const int MENU_LEFT = 40;
 	private const int MENU_GAP = 0;
-	private const int BUTTON_WIDTH = 75;
-	private const int BUTTON_HEIGHT = 15;
+	private const int BUTTON_WIDTH = 120;
+	private const int BUTTON_HEIGHT = 20;
 	private const int BUTTON_SEP = BUTTON_WIDTH + MENU_GAP;
 
 	private const int TEXT_OFFSET = 0;
@@ -93,7 +93,7 @@ static class MenuController
 
 
 	private const int GAME_MENU_QUIT_BUTTON = 2;
-	private static readonly Color MENU_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
+	private static readonly Color MENU_COLOR = SwinGame.RGBAColor(0, 0, 0, 0);
 
 	private static readonly Color HIGHLIGHT_COLOR = SwinGame.RGBAColor(1, 57, 86, 255);
 	/// <summary>
@@ -219,9 +219,9 @@ static class MenuController
 	{
 		//Clears the Screen to Black
 		//SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
-
+		SwinGame.DrawBitmap (GameResources.GameImage ("SetupMenu"), 59, 484);
 		DrawButtons(MAIN_MENU);
-		DrawButtons(SETUP_MENU, 1, 1);
+		DrawButtons(SETUP_MENU, 3, 0);
 	}
 
 	/// <summary>
@@ -232,8 +232,9 @@ static class MenuController
 	/// </remarks>
 	public static void DrawSound()
 	{
+		SwinGame.DrawBitmap (GameResources.GameImage ("SoundMenu"), 171, 484);
 		DrawButtons(MAIN_MENU);
-		DrawButtons(SOUND_MENU, 1, 1);
+		DrawButtons(SOUND_MENU, 3, 1);
 	}
 
 	/// <summary>
@@ -244,8 +245,9 @@ static class MenuController
 	/// </remarks>
 	public static void DrawResolution()
 	{
+		SwinGame.DrawBitmap (GameResources.GameImage ("ResolutionMenu"), 389, 484);
 		DrawButtons(MAIN_MENU);
-		DrawButtons(RESOLUTION_MENU, 1, 1);
+		DrawButtons(RESOLUTION_MENU, 3, 3);
 	}
 
 	/// <summary>
@@ -278,7 +280,7 @@ static class MenuController
 			int btnLeft = 0;
 			btnLeft = MENU_LEFT + BUTTON_SEP * (i + xOffset);
 			//SwinGame.FillRectangle(Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT)
-			SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Transparent, GameResources.GameFont("Menu"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET + GameController.ResolutionOffsetY, BUTTON_WIDTH, BUTTON_HEIGHT);
+			SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Transparent, GameResources.GameFont("Liberatorm"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET + GameController.ResolutionOffsetY, BUTTON_WIDTH, BUTTON_HEIGHT);
 
 			if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset)) {
 				SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop + GameController.ResolutionOffsetY, BUTTON_WIDTH, BUTTON_HEIGHT);

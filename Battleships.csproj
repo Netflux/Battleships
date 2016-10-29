@@ -19,12 +19,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <CustomCommands>
       <CustomCommands>
-        <Command>
-          <type>AfterBuild</type>
-          <command>%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MsBuild.exe "${ProjectDir}/${ProjectName}.csproj" /target:CopyFiles /p:Configuration=Debug-Windows;Platform=x86;OutDir="${TargetDir}"</command>
-          <workingdir>${ProjectDir}</workingdir>
-          <externalConsole>True</externalConsole>
-        </Command>
+        <Command type="AfterBuild" command="%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MsBuild.exe &quot;${ProjectDir}/${ProjectName}.csproj&quot; /target:CopyFiles /p:Configuration=Debug-Windows;Platform=x86;OutDir=&quot;${TargetDir}&quot;" workingdir="${ProjectDir}" externalConsole="True" />
       </CustomCommands>
     </CustomCommands>
     <AssemblyName>Battleships</AssemblyName>
@@ -41,10 +36,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <CustomCommands>
       <CustomCommands>
-        <Command>
-          <type>AfterBuild</type>
-          <command>xbuild ${ProjectName}.csproj /target:CopyFiles</command>
-        </Command>
+        <Command type="AfterBuild" command="xbuild ${ProjectName}.csproj /target:CopyFiles" />
       </CustomCommands>
     </CustomCommands>
     <AssemblyName>Battleships</AssemblyName>
@@ -61,10 +53,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <CustomCommands>
       <CustomCommands>
-        <Command>
-          <type>AfterBuild</type>
-          <command>xbuild ${ProjectName}.csproj /target:CopyFiles</command>
-        </Command>
+        <Command type="AfterBuild" command="xbuild ${ProjectName}.csproj /target:CopyFiles" />
       </CustomCommands>
     </CustomCommands>
     <AssemblyName>Battleships</AssemblyName>
@@ -358,6 +347,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\images\splash1280x960.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\images\highscoreboard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\images\resolution_pop.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\images\setup_pop.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\images\sound_pop.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\fonts\liberatorm.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

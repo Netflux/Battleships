@@ -20,6 +20,7 @@ public static class GameResources
 		NewFont("Courier", "cour.ttf", 14);
 		NewFont("CourierSmall", "cour.ttf", 8);
 		NewFont("Menu", "ffaccess.ttf", 8);
+		NewFont ("Liberatorm", "liberatorm.ttf", 25);
 	}
 
 	/// <summary>
@@ -32,12 +33,16 @@ public static class GameResources
 		NewImage("Menu", "main_page.jpg");
 		NewImage("Menu2", "main_page1024x768.jpg");
 		NewImage("Menu3", "main_page1280x960.jpg");
+		NewImage ("SetupMenu", "setup_pop.png");
+		NewImage ("ResolutionMenu", "resolution_pop.png");
+		NewImage ("SoundMenu", "sound_pop.png");
 		NewImage("Discovery", "discover.jpg");
 		NewImage("Discovery2", "discover1024x768.jpg");
 		NewImage("Discovery3", "discover1280x960.jpg");
 		NewImage("Deploy", "deploy.jpg");
 		NewImage("Deploy2", "deploy1024x768.jpg");
 		NewImage("Deploy3", "deploy1280x960.jpg");
+		NewImage ("Highscoreboard", "highscoreboard.png");
 
 		//Deployment
 		NewImage("LeftRightButton", "deploy_dir_button_horiz.png");
