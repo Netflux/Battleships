@@ -34,8 +34,11 @@ public static class GameResources
 		NewImage("Menu2", "main_page1024x768.jpg");
 		NewImage("Menu3", "main_page1280x960.jpg");
 		NewImage ("SetupMenu", "setup_pop.png");
+		NewImage ("SetupMenu1024x768", "setup_pop1024x768.png");
 		NewImage ("ResolutionMenu", "resolution_pop.png");
+		NewImage ("ResolutionMenu1024x768", "resolution_pop1024x768.png");
 		NewImage ("SoundMenu", "sound_pop.png");
+		NewImage ("SoundMenu1024x768", "sound_pop1024x768.png");
 		NewImage("Discovery", "discover.jpg");
 		NewImage("Discovery2", "discover1024x768.jpg");
 		NewImage("Discovery3", "discover1280x960.jpg");

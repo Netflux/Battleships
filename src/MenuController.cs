@@ -110,7 +110,7 @@ static class MenuController
 	public static void HandleSetupMenuInput()
 	{
 		bool handled = false;
-		handled = HandleMenuInput(SETUP_MENU, 1, 1);
+		handled = HandleMenuInput(SETUP_MENU, 3, 0);
 
 		if (!handled) {
 			HandleMenuInput(MAIN_MENU, 0, 0);
@@ -123,7 +123,7 @@ static class MenuController
 	public static void HandleSoundMenuInput()
 	{
 		bool handled = false;
-		handled = HandleMenuInput(SOUND_MENU, 1, 1);
+		handled = HandleMenuInput(SOUND_MENU, 3, 1);
 
 		if (!handled) {
 			HandleMenuInput(MAIN_MENU, 0, 0);
@@ -136,7 +136,7 @@ static class MenuController
 	public static void HandleResolutionMenuInput()
 	{
 		bool handled = false;
-		handled = HandleMenuInput(RESOLUTION_MENU, 1, 1);
+		handled = HandleMenuInput(RESOLUTION_MENU, 3, 3);
 
 		if (!handled) {
 			HandleMenuInput(MAIN_MENU, 0, 0);
@@ -219,7 +219,13 @@ static class MenuController
 	{
 		//Clears the Screen to Black
 		//SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
-		SwinGame.DrawBitmap (GameResources.GameImage ("SetupMenu"), 59, 484);
+
+		if (GameController.Resolution == GameResolution.Res800x600) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("SetupMenu"), 59, 484);
+		} else if (GameController.Resolution == GameResolution.Res1024x768) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("SetupMenu1024x768"), 58, 618);
+		}// else if (GameController.Resolution == GameResolution.Res1280x960) {}
+
 		DrawButtons(MAIN_MENU);
 		DrawButtons(SETUP_MENU, 3, 0);
 	}
@@ -232,7 +238,12 @@ static class MenuController
 	/// </remarks>
 	public static void DrawSound()
 	{
-		SwinGame.DrawBitmap (GameResources.GameImage ("SoundMenu"), 171, 484);
+		if (GameController.Resolution == GameResolution.Res800x600) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("SoundMenu"), 171, 484);
+		} else if (GameController.Resolution == GameResolution.Res1024x768) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("SoundMenu1024x768"), 200, 618);
+		} //else if (GameController.Resolution == GameResolution.Res1280x960) {}
+
 		DrawButtons(MAIN_MENU);
 		DrawButtons(SOUND_MENU, 3, 1);
 	}
@@ -245,7 +256,12 @@ static class MenuController
 	/// </remarks>
 	public static void DrawResolution()
 	{
-		SwinGame.DrawBitmap (GameResources.GameImage ("ResolutionMenu"), 389, 484);
+		if (GameController.Resolution == GameResolution.Res800x600) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("ResolutionMenu"), 389, 484);
+		} else if (GameController.Resolution == GameResolution.Res1024x768) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("ResolutionMenu1024x768"), 481, 621);
+		} //else if (GameController.Resolution == GameResolution.Res1280x960) {}
+
 		DrawButtons(MAIN_MENU);
 		DrawButtons(RESOLUTION_MENU, 3, 3);
 	}
@@ -276,14 +292,14 @@ static class MenuController
 
 		btnTop = MENU_TOP - (MENU_GAP + BUTTON_HEIGHT) * level;
 		int i = 0;
-		for (i = 0; i <= _menuStructure[menu].Length - 1; i++) {
+		for (i = 0; i <= _menuStructure [menu].Length - 1; i++) {
 			int btnLeft = 0;
 			btnLeft = MENU_LEFT + BUTTON_SEP * (i + xOffset);
-			//SwinGame.FillRectangle(Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT)
-			SwinGame.DrawTextLines(_menuStructure[menu][i], MENU_COLOR, Color.Transparent, GameResources.GameFont("Liberatorm"), FontAlignment.AlignCenter, btnLeft + TEXT_OFFSET, btnTop + TEXT_OFFSET + GameController.ResolutionOffsetY, BUTTON_WIDTH, BUTTON_HEIGHT);
+			//SwinGame.FillRectangle (Color.White, btnLeft, btnTop, BUTTON_WIDTH, BUTTON_HEIGHT);
+			SwinGame.DrawTextLines (_menuStructure [menu] [i], MENU_COLOR, Color.Transparent, GameResources.GameFont ("Liberatorm"), FontAlignment.AlignCenter, (int)(Math.Round ((btnLeft + TEXT_OFFSET) * GameController.ResolutionMultiplier)), (int)(Math.Round ((btnTop + TEXT_OFFSET) * GameController.ResolutionMultiplier)), BUTTON_WIDTH, BUTTON_HEIGHT);
 
-			if (SwinGame.MouseDown(MouseButton.LeftButton) & IsMouseOverMenu(i, level, xOffset)) {
-				SwinGame.DrawRectangle(HIGHLIGHT_COLOR, btnLeft, btnTop + GameController.ResolutionOffsetY, BUTTON_WIDTH, BUTTON_HEIGHT);
+			if (SwinGame.MouseDown (MouseButton.LeftButton) & IsMouseOverMenu (i, level, xOffset)) {
+				SwinGame.DrawRectangle (HIGHLIGHT_COLOR, (int)(Math.Round ((btnLeft + TEXT_OFFSET) * GameController.ResolutionMultiplier)), (int)(Math.Round ((btnTop + TEXT_OFFSET) * GameController.ResolutionMultiplier)), BUTTON_WIDTH, BUTTON_HEIGHT);
 			}
 		}
 	}
@@ -310,7 +326,7 @@ static class MenuController
 		int btnTop = MENU_TOP - (MENU_GAP + BUTTON_HEIGHT) * level;
 		int btnLeft = MENU_LEFT + BUTTON_SEP * (button + xOffset);
 
-		return UtilityFunctions.IsMouseInRectangle(btnLeft, btnTop + GameController.ResolutionOffsetY, BUTTON_WIDTH, BUTTON_HEIGHT);
+		return UtilityFunctions.IsMouseInRectangle ((int)(Math.Round (btnLeft * GameController.ResolutionMultiplier)), (int)(Math.Round (btnTop * GameController.ResolutionMultiplier)), BUTTON_WIDTH, BUTTON_HEIGHT);
 	}
 
 	/// <summary>

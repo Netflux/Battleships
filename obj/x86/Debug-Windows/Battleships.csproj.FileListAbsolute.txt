@@ -351,3 +351,6 @@ C:\Users\User\Desktop\Battleships\bin\Debug\normnfkd.nlp
 C:\Users\User\Desktop\Battleships\obj\x86\Debug-Windows\Battleships.csprojResolveAssemblyReference.cache
 C:\Users\User\Desktop\Battleships\obj\x86\Debug-Windows\Battleships.exe
 C:\Users\User\Desktop\Battleships\bin\Debug\Resources\fonts\liberatorm.ttf
+C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\resolution_pop1024x768.png
+C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\setup_pop1024x768.png
+C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\sound_pop1024x768.png

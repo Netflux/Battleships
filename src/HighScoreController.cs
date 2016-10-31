@@ -121,7 +121,13 @@ static class HighScoreController
 
 		if (_Scores.Count == 0)
 			LoadScores();
-		SwinGame.DrawBitmap (GameResources.GameImage ("Highscoreboard"), 295, 202);
+		
+		if (GameController.Resolution == GameResolution.Res800x600) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("Highscoreboard"), 295, 202);
+		} else if (GameController.Resolution == GameResolution.Res1024x768) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("Highscoreboard"), 405, 278);
+		} //else if (GameController.Resolution == GameResolution.Res1280x960) {}
+
 		SwinGame.DrawText(" High Scores   ", Color.Black, GameResources.GameFont("Liberatorm"), SCORES_LEFT + (GameController.ResolutionOffsetX / 2), SCORES_HEADING + (GameController.ResolutionOffsetY / 2));
 
 		//For all of the scores
