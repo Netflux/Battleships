@@ -174,8 +174,20 @@ public static class GameController
 
 		switch (result.Value) {
 		case ResultOfAttack.Destroyed:
-			PlayHitSequence(result.Row, result.Column, isHuman);
-			Audio.PlaySoundEffect(GameResources.GameSound("Sink"));
+			PlayHitSequence (result.Row, result.Column, isHuman);
+			Audio.PlaySoundEffect (GameResources.GameSound ("Sink"));
+			//Stopwatch s1 = Stopwatch.StartNew(); 
+
+
+			SwinGame.DrawBitmapOnScreen (new Bitmap ("destroyed.jpg"), 100, 200);
+			SwinGame.Delay (5000);
+			SwinGame.ReleaseBitmap ("destroyed.jpg");
+			//} while (s1.Elapsed.Seconds < 8);
+
+
+			//s1.Stop ();
+
+
 
 			break;
 		case ResultOfAttack.GameOver:

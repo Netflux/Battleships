@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Battleships</RootNamespace>
     <ApplicationIcon>Resources\SwinGame.ico</ApplicationIcon>
-    <AssemblyName>MyGame</AssemblyName>
+    <AssemblyName>Battleships</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Windows|x86' ">
     <DebugType>none</DebugType>
@@ -22,7 +22,6 @@
         <Command type="AfterBuild" command="%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MsBuild.exe &quot;${ProjectDir}/${ProjectName}.csproj&quot; /target:CopyFiles /p:Configuration=Debug-Windows;Platform=x86;OutDir=&quot;${TargetDir}&quot;" workingdir="${ProjectDir}" externalConsole="True" />
       </CustomCommands>
     </CustomCommands>
-    <AssemblyName>Battleships</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Mac|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,7 +38,6 @@
         <Command type="AfterBuild" command="xbuild ${ProjectName}.csproj /target:CopyFiles" />
       </CustomCommands>
     </CustomCommands>
-    <AssemblyName>Battleships</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Unix|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,7 +54,6 @@
         <Command type="AfterBuild" command="xbuild ${ProjectName}.csproj /target:CopyFiles" />
       </CustomCommands>
     </CustomCommands>
-    <AssemblyName>Battleships</AssemblyName>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -371,6 +368,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\images\sound_pop1024x768.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\images\destroyed.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
