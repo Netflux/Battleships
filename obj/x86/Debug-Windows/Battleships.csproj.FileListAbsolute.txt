@@ -354,44 +354,6 @@ C:\Users\User\Desktop\Battleships\bin\Debug\Resources\fonts\liberatorm.ttf
 C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\resolution_pop1024x768.png
 C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\setup_pop1024x768.png
 C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\sound_pop1024x768.png
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> visual-improvements-mainmenu
-C:\Battleships\bin\Debug\Resources\sounds\Destination_Tortuga.mp3
-C:\Battleships\bin\Debug\Resources\sounds\Drums_of_Buccaneer.mp3
-C:\Battleships\bin\Debug\Resources\images\deploy1024x768.jpg
-C:\Battleships\bin\Debug\Resources\images\deploy1280x960.jpg
-C:\Battleships\bin\Debug\Resources\images\discover1024x768.jpg
-C:\Battleships\bin\Debug\Resources\images\discover1280x960.jpg
-C:\Battleships\bin\Debug\Resources\images\main_page1024x768.jpg
-C:\Battleships\bin\Debug\Resources\images\main_page1280x960.jpg
-C:\Battleships\bin\Debug\Resources\images\deploy_button_hl1024x768.png
-C:\Battleships\bin\Debug\Resources\images\deploy_button_hl1280x960.png
-C:\Battleships\bin\Debug\Resources\images\deploy_dir_button_horiz1024x768.png
-C:\Battleships\bin\Debug\Resources\images\deploy_dir_button_horiz1280x960.png
-C:\Battleships\bin\Debug\Resources\images\deploy_dir_button_vert1024x768.png
-C:\Battleships\bin\Debug\Resources\images\deploy_dir_button_vert1280x960.png
-C:\Battleships\bin\Debug\Resources\images\deploy_play_button1024x768.png
-C:\Battleships\bin\Debug\Resources\images\deploy_play_button1280x960.png
-C:\Battleships\bin\Debug\Resources\images\deploy_randomize_button1024x768.png
-C:\Battleships\bin\Debug\Resources\images\deploy_randomize_button1280x960.png
-C:\Battleships\bin\Debug\Resources\images\explosion1024x768.png
-C:\Battleships\bin\Debug\Resources\images\explosion1280x960.png
-C:\Battleships\bin\Debug\Resources\images\splash1024x768.png
-C:\Battleships\bin\Debug\Resources\images\splash1280x960.png
-C:\Battleships\bin\Debug\Resources\images\highscoreboard.png
-C:\Battleships\bin\Debug\Resources\images\resolution_pop.png
-C:\Battleships\bin\Debug\Resources\images\setup_pop.png
-C:\Battleships\bin\Debug\Resources\images\sound_pop.png
-C:\Battleships\bin\Debug\Resources\fonts\liberatorm.ttf
-C:\Battleships\bin\Debug\Resources\images\resolution_pop1024x768.png
-C:\Battleships\bin\Debug\Resources\images\setup_pop1024x768.png
-C:\Battleships\bin\Debug\Resources\images\sound_pop1024x768.png
-C:\Battleships\bin\Debug\Resources\images\destroyed.jpg
-<<<<<<< HEAD
-=======
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\images\deploy1024x768.jpg
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\images\deploy1280x960.jpg
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\images\discover1024x768.jpg
@@ -424,5 +386,7 @@ C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\images\destroyed.jpg
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\images\resolution_pop1280x960.png
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\images\setup_pop1280x960.png
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\images\sound_pop1280x960.png
->>>>>>> Stashed changes
->>>>>>> visual-improvements-mainmenu
+C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\destroyed.jpg
+C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\resolution_pop1280x960.png
+C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\setup_pop1280x960.png
+C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\sound_pop1280x960.png
