@@ -1,8 +1,19 @@
 ﻿<Properties StartupItem="Battleships.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug-Mac" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug-Windows|x86" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\Model\Player.cs">
+    <Files>
+      <File FileName="c:\Users\100067144\Desktop\Battleships\src\GameLogic.cs" Line="23" Column="3" />
+      <File FileName="src\GameController.cs" Line="27" Column="37" />
+      <File FileName="src\DiscoveryController.cs" Line="87" Column="4" />
+      <File FileName="src\EndingGameController.cs" Line="22" Column="3" />
+      <File FileName="StopWatch.cs" Line="27" Column="1" />
+      <File FileName="src\MenuController.cs" Line="491" Column="3" />
+      <File FileName="src\Model\Player.cs" Line="121" Column="16" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Battleships PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

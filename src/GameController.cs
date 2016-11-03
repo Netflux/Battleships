@@ -412,4 +412,9 @@ public static class GameController
 	{
 		_aiSetting = setting;
 	}
+
+	public static AIOption GetDifficulty()
+	{
+		return _aiSetting;
+	}
 }

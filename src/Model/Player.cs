@@ -17,8 +17,9 @@ public class Player : IEnumerable<Ship>
 	protected BattleShipsGame _game;
 	private int _shots;
 	private int _hits;
-
 	private int _misses;
+	private bool _lost;
+
 	/// <summary>
 	/// Returns the game that the player is part of.
 	/// </summary>
@@ -113,6 +114,16 @@ public class Player : IEnumerable<Ship>
 	/// <returns>the number of shots that have missed ships</returns>
 	public int Missed {
 		get { return _misses; }
+	}
+
+	/// <summary>
+	/// Gets or sets a value indicating whether this Player has lost.
+	/// </summary>
+	/// <value><c>true</c> if lost; otherwise, <c>false</c>.</value>
+	public bool Lost
+	{
+		get { return _lost; }
+		set { _lost = value; }
 	}
 
 	public int Score {

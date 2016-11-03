@@ -59,6 +59,8 @@ static class DiscoveryController
 		const int SHOTS_TOP = 157;
 		const int HITS_TOP = 206;
 		const int SPLASH_TOP = 256;
+		const int TIMER_LEFT = 102;
+		const int TIMER_TOP = 306;
 
 		if ((SwinGame.KeyDown(KeyCode.vk_LSHIFT) | SwinGame.KeyDown(KeyCode.vk_RSHIFT)) & SwinGame.KeyDown(KeyCode.vk_c)) {
 			UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, true);
@@ -72,5 +74,34 @@ static class DiscoveryController
 		SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), (int)(Math.Round (SCORES_LEFT * GameController.ResolutionMultiplier)), (int)(Math.Round (SHOTS_TOP * GameController.ResolutionMultiplier)));
 		SwinGame.DrawText(GameController.HumanPlayer.Hits.ToString(), Color.White, GameResources.GameFont("Menu"), (int)(Math.Round (SCORES_LEFT * GameController.ResolutionMultiplier)), (int)(Math.Round (HITS_TOP * GameController.ResolutionMultiplier)));
 		SwinGame.DrawText(GameController.HumanPlayer.Missed.ToString(), Color.White, GameResources.GameFont("Menu"), (int)(Math.Round (SCORES_LEFT * GameController.ResolutionMultiplier)), (int)(Math.Round (SPLASH_TOP * GameController.ResolutionMultiplier)));
+		SwinGame.DrawText("Time Taken: " + StopWatch.TimeTaken("elapsedTime"), Color.White, GameResources.GameFont("Menu"), (int)(Math.Round (TIMER_LEFT * GameController.ResolutionMultiplier)), (int)(Math.Round (TIMER_TOP * GameController.ResolutionMultiplier)));
+
+		if (GameController.GetDifficulty() == AIOption.Easy)
+		{
+			if(StopWatch.TimeTaken("elapsedTime") == "10:00")
+			{
+				GameController.HumanPlayer.Lost = true;
+				GameController.EndCurrentState ();
+				GameController.AddNewState (GameState.EndingGame);
+			}
+		}
+		else if (GameController.GetDifficulty() == AIOption.Medium)
+		{
+			if(StopWatch.TimeTaken("elapsedTime") == "05:00")
+			{
+				GameController.HumanPlayer.Lost = true;
+				GameController.EndCurrentState ();
+				GameController.AddNewState (GameState.EndingGame);
+			}
+		}
+		else if (GameController.GetDifficulty() == AIOption.Hard)
+		{
+			if(StopWatch.TimeTaken("elapsedTime") == "03:00")
+			{
+				GameController.HumanPlayer.Lost = true;
+				GameController.EndCurrentState ();
+				GameController.AddNewState (GameState.EndingGame);
+			}
+		}
 	}
 }

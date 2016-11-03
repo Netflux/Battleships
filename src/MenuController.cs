@@ -473,16 +473,19 @@ static class MenuController
 	{
 		switch (button) {
 		case GAME_MENU_RETURN_BUTTON:
-			GameController.EndCurrentState();
+			GameController.EndCurrentState ();
+			StopWatch.stopWatch.Start ();
 			break;
 		case GAME_MENU_SURRENDER_BUTTON:
-			GameController.EndCurrentState();
+			GameController.EndCurrentState ();
 			//end game menu
-			GameController.EndCurrentState();
+			GameController.EndCurrentState ();
 			//end game
+			StopWatch.stopWatch.Stop ();
+			StopWatch.stopWatch.Reset ();
 			break;
 		case GAME_MENU_QUIT_BUTTON:
-			GameController.AddNewState(GameState.Quitting);
+			GameController.AddNewState (GameState.Quitting);
 			break;
 		}
 	}
