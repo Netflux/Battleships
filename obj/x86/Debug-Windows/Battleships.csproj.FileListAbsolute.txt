@@ -354,8 +354,6 @@ C:\Users\User\Desktop\Battleships\bin\Debug\Resources\fonts\liberatorm.ttf
 C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\resolution_pop1024x768.png
 C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\setup_pop1024x768.png
 C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\sound_pop1024x768.png
-<<<<<<< Updated upstream
-=======
 C:\Battleships\bin\Debug\Resources\sounds\Destination_Tortuga.mp3
 C:\Battleships\bin\Debug\Resources\sounds\Drums_of_Buccaneer.mp3
 C:\Battleships\bin\Debug\Resources\images\deploy1024x768.jpg
@@ -419,4 +417,7 @@ C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\images\destroyed.jpg
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\images\resolution_pop1280x960.png
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\images\setup_pop1280x960.png
 C:\Users\Netflux\Desktop\Battleships\bin\Debug\Resources\images\sound_pop1280x960.png
->>>>>>> Stashed changes
+C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\resolution_pop1280x960.png
+C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\setup_pop1280x960.png
+C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\sound_pop1280x960.png
+C:\Users\User\Desktop\Battleships\bin\Debug\Resources\images\destroyed.jpg
