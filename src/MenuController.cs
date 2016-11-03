@@ -224,7 +224,9 @@ static class MenuController
 			SwinGame.DrawBitmap (GameResources.GameImage ("SetupMenu"), 59, 484);
 		} else if (GameController.Resolution == GameResolution.Res1024x768) {
 			SwinGame.DrawBitmap (GameResources.GameImage ("SetupMenu1024x768"), 58, 618);
-		}// else if (GameController.Resolution == GameResolution.Res1280x960) {}
+		} else if (GameController.Resolution == GameResolution.Res1280x960) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("SetupMenu1280x960"), 58, 776);
+		}
 
 		DrawButtons(MAIN_MENU);
 		DrawButtons(SETUP_MENU, 3, 0);
@@ -242,7 +244,9 @@ static class MenuController
 			SwinGame.DrawBitmap (GameResources.GameImage ("SoundMenu"), 171, 484);
 		} else if (GameController.Resolution == GameResolution.Res1024x768) {
 			SwinGame.DrawBitmap (GameResources.GameImage ("SoundMenu1024x768"), 200, 618);
-		} //else if (GameController.Resolution == GameResolution.Res1280x960) {}
+		} else if (GameController.Resolution == GameResolution.Res1280x960) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("SoundMenu1280x960"), 235, 776);
+		}
 
 		DrawButtons(MAIN_MENU);
 		DrawButtons(SOUND_MENU, 3, 1);
@@ -260,7 +264,9 @@ static class MenuController
 			SwinGame.DrawBitmap (GameResources.GameImage ("ResolutionMenu"), 389, 484);
 		} else if (GameController.Resolution == GameResolution.Res1024x768) {
 			SwinGame.DrawBitmap (GameResources.GameImage ("ResolutionMenu1024x768"), 481, 621);
-		} //else if (GameController.Resolution == GameResolution.Res1280x960) {}
+		} else if (GameController.Resolution == GameResolution.Res1280x960) {
+			SwinGame.DrawBitmap (GameResources.GameImage ("ResolutionMenu1280x960"), 584, 776);
+		}
 
 		DrawButtons(MAIN_MENU);
 		DrawButtons(RESOLUTION_MENU, 3, 3);

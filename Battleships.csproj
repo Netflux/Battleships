@@ -19,7 +19,12 @@
     <PlatformTarget>x86</PlatformTarget>
     <CustomCommands>
       <CustomCommands>
-        <Command type="AfterBuild" command="%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MsBuild.exe &quot;${ProjectDir}/${ProjectName}.csproj&quot; /target:CopyFiles /p:Configuration=Debug-Windows;Platform=x86;OutDir=&quot;${TargetDir}&quot;" workingdir="${ProjectDir}" externalConsole="True" />
+        <Command>
+          <type>AfterBuild</type>
+          <command>%SystemRoot%\Microsoft.NET\Framework\v4.0.30319\MsBuild.exe "${ProjectDir}/${ProjectName}.csproj" /target:CopyFiles /p:Configuration=Debug-Windows;Platform=x86;OutDir="${TargetDir}"</command>
+          <workingdir>${ProjectDir}</workingdir>
+          <externalConsole>True</externalConsole>
+        </Command>
       </CustomCommands>
     </CustomCommands>
     <AssemblyName>Battleships</AssemblyName>
@@ -36,7 +41,10 @@
     <PlatformTarget>x86</PlatformTarget>
     <CustomCommands>
       <CustomCommands>
-        <Command type="AfterBuild" command="xbuild ${ProjectName}.csproj /target:CopyFiles" />
+        <Command>
+          <type>AfterBuild</type>
+          <command>xbuild ${ProjectName}.csproj /target:CopyFiles</command>
+        </Command>
       </CustomCommands>
     </CustomCommands>
     <AssemblyName>Battleships</AssemblyName>
@@ -53,7 +61,10 @@
     <PlatformTarget>x86</PlatformTarget>
     <CustomCommands>
       <CustomCommands>
-        <Command type="AfterBuild" command="xbuild ${ProjectName}.csproj /target:CopyFiles" />
+        <Command>
+          <type>AfterBuild</type>
+          <command>xbuild ${ProjectName}.csproj /target:CopyFiles</command>
+        </Command>
       </CustomCommands>
     </CustomCommands>
     <AssemblyName>Battleships</AssemblyName>
@@ -373,6 +384,21 @@
     <None Include="Resources\images\sound_pop1024x768.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+<<<<<<< Updated upstream
+=======
+    <None Include="Resources\images\destroyed.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\images\resolution_pop1280x960.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\images\setup_pop1280x960.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\images\sound_pop1280x960.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+>>>>>>> Stashed changes
   </ItemGroup>
   <Target Name="CopyFiles">
     <Copy SourceFiles="@(MacLibraryFiles)" DestinationFolder="$(OutDir)" />
