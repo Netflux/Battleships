@@ -482,3 +482,11 @@ C:\Users\100067144\Desktop\Battleships\bin\Debug\Battleships.exe
 C:\Users\100067144\Desktop\Battleships\bin\Debug\SwinGame.dll
 C:\Users\100067144\Desktop\Battleships\obj\x86\Debug-Windows\Battleships.csprojResolveAssemblyReference.cache
 C:\Users\100067144\Desktop\Battleships\obj\x86\Debug-Windows\Battleships.exe
+C:\Users\Netflux\Desktop\Battleships\bin\Debug\mscorlib.dll
+C:\Users\Netflux\Desktop\Battleships\bin\Debug\nunit.framework.dll
+C:\Users\Netflux\Desktop\Battleships\bin\Debug\nunit.framework.xml
+C:\Users\Netflux\Desktop\Battleships\bin\Debug\normidna.nlp
+C:\Users\Netflux\Desktop\Battleships\bin\Debug\normnfc.nlp
+C:\Users\Netflux\Desktop\Battleships\bin\Debug\normnfd.nlp
+C:\Users\Netflux\Desktop\Battleships\bin\Debug\normnfkc.nlp
+C:\Users\Netflux\Desktop\Battleships\bin\Debug\normnfkd.nlp
