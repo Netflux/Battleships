@@ -340,7 +340,7 @@ static class MenuController
 	/// </summary>
 	/// <param name="menu">the menu that has been clicked</param>
 	/// <param name="button">the index of the button that was clicked</param>
-	private static void PerformMenuAction(int menu, int button)
+	public static void PerformMenuAction(int menu, int button)
 	{
 		switch (menu) {
 		case MAIN_MENU:
