@@ -192,3 +192,5 @@ C:\Users\100067144\Desktop\Battleships\bin\Debug\SwinGame.dll
 C:\Users\100067144\Desktop\Battleships\obj\x86\Debug-Mac\Battleships.csprojResolveAssemblyReference.cache
 C:\Users\100067144\Desktop\Battleships\obj\x86\Debug-Mac\Battleships.exe
 C:\Users\100067144\Desktop\Battleships\obj\x86\Debug-Mac\Battleships.pdb
+C:\Battleships\obj\x86\Debug-Mac\Battleships.exe
+C:\Battleships\obj\x86\Debug-Mac\Battleships.pdb
